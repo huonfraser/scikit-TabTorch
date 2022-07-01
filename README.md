@@ -5,7 +5,7 @@ sklike-torch provides a high-level api to use pytorch neural-networks alongside 
 
 ## Improved cross-validation loop 
 
-Traditional cross-validation metrics average results from each fold. Our implementation concatenates test set predictions from each fold and calcualtes metrics based on the combined set of predictions. This gives a better idea of performance for cases with uneven sized folds or for non-linear metrics like R^2 and is particurly effective for cross-validation methods where each instance is tested on once.
+Traditional cross-validation metrics average results from each fold. Our implementation concatenates test set predictions from each fold and calcualtes metrics based on the combined set of predictions. This gives a better idea of performance for cases with uneven sized folds or for non-linear metrics like R^2 and is particurly effective for cross-validation methods where each instance is tested on once. Models trained independantly on each fold can be ensembled.
 
 ## Use pytorch modules like they're sklearn models
 
