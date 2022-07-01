@@ -1,4 +1,4 @@
-#sklike-torch
+# sklike-torch
 
 sklike-torch provides a high-level api to use pytorch neural-networks alongside sklearn-models.
 
