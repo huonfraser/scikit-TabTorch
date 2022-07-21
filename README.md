@@ -1,21 +1,39 @@
-# sklike-torch
+# sklike-torch - An experiment framework for Tabular Data
 
-sklike-torch provides a high-level api to use pytorch neural-networks alongside sklearn-models.
+As I was researching my Masters I kept running into three key problems:
+* How do I keep track of experiments? 
+* How do I split my data validate my experiments? 
+* How do I train and make predictions with neural-networks.  
 
-Core features are:
-* An sklearn-compatability layer for pytorch models. Call fit(x,y),transform(x) and predict(x)
-* An improved cross-validation loop
-* Experiment tracking
+Great solutions to these problems exist but they tend to differ across the scikit-learn and PyTorch platforms. The 
+core philisophy of this library is to build on these existing solutions while providing a consistent scikit-learn type
+interface. This is currently only for tabular data and local execution. 
+
+Core Features are:
+
+* A scikit-learn compatability layer for PyTorch models. Call fit(X,y,**params), transform(X) and predict(X). The 
+PyTorch-Tabular/PyTorch Lightning 
+* A modular experiment framework. Easy to extend by overwriting components or adding your own functions
+* Experiment tracking with options for Tensorboard and Weights & Biases. 
+* Hyperparameter search with scikit-optimise. Support for  search libraries are todo. 
+
+Examples of things you can do with this library include:
+* Train a PyTorch model then add it as a feature extractor to a  scikit-learn pipeline.
+* Perform cross-validation then return an ensemble of each fold. 
+
+## Future Developments
+
+This library is currently early in development. Once it reaches a mature stage I plan to break off the torch/scikit 
+compatability layer into its own library.
+
+Development is currently limited by the dependency on PyTorch-Tabular. PyTorch-Tabular is 80% excellent but the
+remaining 20% has caused a few headaches. Plans may change depending on this library develops.
+
+The current to do list is:
+* Exhaustive testing
+* Documentation 
+* Fixing several logging incompatabilities between library. Add an option to disable logging for PyTorch models.
+how this library develops
 
 
-## Use pytorch modules like they're sklearn models
-
-Sklearn only provides a simple neural-network models while pytorch is famous for providing a fairly low-level api. Combining the two requires juggling between tensors and ndarrays, torch Ddatasets and pandas Dataframes. Pytorch-tabular comes close to briding this gap and we build upon this package to give an api that combines pytorch and sklearn models seamlessly. 
-
-## Improved cross-validation loop 
-
-Traditional cross-validation metrics average results from each fold. Our implementation concatenates test set predictions from each fold and calcualtes metrics based on the combined set of predictions. This gives a better idea of performance for cases with uneven sized folds or for non-linear metrics like R^2 and is particurly effective for cross-validation methods where each instance is tested on once. Models trained independantly on each fold can be ensembled.
-
-
-## Weights and Bias Integration
 
