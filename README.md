@@ -1,4 +1,4 @@
-# sklike-torch - An experiment framework for Tabular Data
+# sklike-torch - A sckit-learn experiment framework for tabular data
 
 As I was researching my Masters I kept running into three key problems:
 * How do I keep track of experiments? 
